@@ -22,5 +22,16 @@ color_pal = plt.rcParams['axes.prop_cycle'].by_key()['color']
 # Create fred object to search for enconomic data
 fred = Fred(api_key=FredApiKey)
 
+
+# Use fred api to search info on s&P and sort result by popularity 
 sp_search = fred.search('S&P', order_by='popularity')
+
+# Show top results
+sp_search.head()
+
+# Get pandas dataframe based on series id 
+sp500 = fred.get_series(series_id='SP500')
+
+# Create chart with pandas dataframe
+sp500.plot(figsize=(10,5), title='S&P 500')
 
