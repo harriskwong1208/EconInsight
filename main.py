@@ -10,14 +10,17 @@ load_dotenv()
 FredApiKey = os.getenv("Fred_Api_Key")
 
 
+
 plt.style.use('fivethirtyeight')
 
 #Lets us see up to 500 columns instead of the middle not being shown 
-# pd.set_option('max_columns',500)
+pd.set_option('display.max_columns',500)
 
 # List of color we can use to change the color of plot
 color_pal = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
+# Create fred object to search for enconomic data
+fred = Fred(api_key=FredApiKey)
 
+sp_search = fred.search('S&P', order_by='popularity')
 
-print(FredApiKey)
