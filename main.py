@@ -35,3 +35,7 @@ sp500 = fred.get_series(series_id='SP500')
 # Create chart with pandas dataframe
 sp500.plot(figsize=(10,5), title='S&P 500')
 
+
+# Find unemployment dataset
+uemp_results = fred.search('unemployment')
+
